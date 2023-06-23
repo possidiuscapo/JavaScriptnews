@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js" defer></script>
+    <title>DOM</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        .header,
+        .footer,
+        .main{
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem;
+        }
+        .header nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+        .header nav ul{
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 5rem;
+        }
+        .section{
+            border: #555 1px solid;
+            padding: 0.5rem 1rem;
+        }
+        form{
+            text-align: center;
+            padding: 2rem;
+        }
+        input{
+           display: inline-block; 
+        }
+        .footer{
+            /* display: flex;
+            justify-content: center;
+            gap: 2rem; */
+            text-align: center;
+        }
+        .footer>button{
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header container class-a flex bg-dark">
+        <nav>
+            <div id="logo">
+                <div style="display: none;">C'est le </div>
+                <strong>LOGO</strong>
+                <div>du site</div>
+            </div>
+            <ul class="nav">
+                <li class="nav-items"><a href="#">Lorem.</a></li>
+                <li class="nav-items"><a href="#">Ipsum</a></li>
+                <li class="nav-items"><a href="#">Suscipit</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="section">
+            <h1>Mon titre de niveau 1 </h1>
+            <section>
+                <h2></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos culpa perspiciatis reprehenderit
+                    enim magnam iste blanditiis eos! Inventore optio in sint illum cum doloribus, ab possimus minima
+                    expedita sequi, dolorem non molestiae nam error necessitatibus ducimus suscipit perspiciatis quae,
+                    dolores neque voluptatum quam ipsa. Adipisci doloremque obcaecati explicabo quo qui laudantium
+                    consequuntur quia fugit, est sapiente repellat, optio, minus possimus voluptate nobis excepturi. At
+                    architecto corrupti debitis explicabo repellendus, nemo, modi fuga tempora animi accusantium odio
+                    numquam porro quia cumque.</p>
+            </section>
+            <section>
+                <h2></h2>
+                <p>Cum, accusamus, unde saepe ratione minus ipsam natus adipisci suscipit ad officiis tempora excepturi
+                    delectus sunt quas eius quaerat sapiente numquam, iste commodi beatae deleniti. Molestias voluptas
+                    optio quam laboriosam tempora, ipsam delectus aperiam quibusdam cupiditate? Debitis consectetur
+                    rerum beatae fugit provident laborum distinctio! Delectus, optio consectetur quaerat nemo voluptate
+                    quo eveniet, temporibus quam fugiat animi nobis mollitia tenetur dignissimos non pariatur laboriosam
+                    quod a. Error repellat corrupti cum ipsam numquam cumque unde aperiam est? Unde qui facilis
+                    molestias quo?</p>
+            </section>
+            <section>
+                <h2></h2>
+                <p>Nisi harum, magnam aut placeat voluptate modi odio ab explicabo numquam ea nobis quo voluptas cumque
+                    voluptates. Perferendis facilis minus fugiat. Dolore, unde? Quo quidem totam iste et nam. Illo
+                    itaque dolore provident odit nobis incidunt libero ratione expedita ad neque perspiciatis est
+                    excepturi rem iusto harum, mollitia commodi dolor ab esse velit atque ipsa vitae nam? Aliquam
+                    recusandae enim consequuntur perferendis voluptates nesciunt magnam optio sint delectus deserunt
+                    illo, ex reprehenderit hic sapiente sit ipsum magni? Quia, quae tenetur.</p>
+            </section>
+        </section>
+        <form action="" method="post">
+            <input type="email" placeholder="Votre email">
+            <input type="password" placeholder="Votre mot de passe"><br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </main>
+    <footer class="footer">
+        <button>Boutton 1</button>
+        <button>Boutton 2</button><br>
+        <div>
+            <button class="">Démarrer</button>
+            <button class="">Arrêter</button>
+        </div>
+        <p id="para"></p>
+        <!-- <button>bouton 3</button> -->
+    </footer>
+     <!--- defer --->
+</body>
+
+</html>

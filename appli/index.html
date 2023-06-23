@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portée</title>
+</head>
+
+<body>
+    <h1>Portée de variable</h1>
+    <p>En javascript, la portée des variables determine où une varieble est accessible et utilsable dans votre code.La
+        portée est définie par l'endroit où vous la déclaré et peut varier en fonction du type de déclaration de
+        variable utilisée.</p>
+    <p>Il existe trois type de portée</p>
+    <p><strong>Portée globale</strong> une variable déclarée en dehors de toutes les fonctions est une variable globale
+        et peut être utilisée dans tout le code JS. Elle est accessible à la fois à l'intérieur et à l'extérieur des
+        fonctions.</p>
+    <code>
+    let globaleVariable = 10; 
+    function foo() {
+      console.log(globaleVariable); //Accès à la variable depuis la fonction
+    }
+  </code>
+    <p><strong>Portée function ou local</strong> une variable déclarée à l'intérieur d' une fonction à une portéelocale
+        et n'est accessible qu'à entre la fonction. Elle est invisible en dehors de la fonction</p>
+    <code>
+    function foo() {
+      let localeVariable = 20; 
+      console.log(localeVariable); //Accès à la variable depuis la fonction
+    }
+  </code>
+    <p><strong>Portée de bloc</strong> une variable déclarée à l'interieur des accolades "{}" avec <code>let</code> et
+        <code>const</code> est accessible uniquement à l'intéreur de ce bloc
+    </p>
+    <code>
+    let globaleVariable = 10; 
+    function foo() {
+      console.log(globaleVariable); //Accès à la variable depuis la fonction
+    }
+  </code>
+</body>
+
+</html>

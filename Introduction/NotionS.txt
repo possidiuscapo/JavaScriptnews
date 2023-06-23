@@ -1,0 +1,16 @@
+Javascrip est un langage de programmation permettant d'implementer des mécanisme complexes sur une page Web créer en 1995 par Brendmen du liveScript.
+Il peut être écrire dans le <head> dans la balise <script></script>
+
+Les Variables sont des emplacements nommées pour conserver une valeur. Elles sont contstituées d'un type, d'un nom, d'une valeur qu'on lui affecte. Nous avons les constantes, les variables,...
+
+
+	*les constantes:
+		les constantes ont une valeur précise et definie
+		
+
+	*les variables en javascript
+		Nominations:
+		La camelCase pour nommer les variables dans Java-Script.
+			Exemple de case Camel: nomDuProfesseur.
+		La snake_case pour nommer les variables dans Java-Script.
+			Exemple de case : nom_du_professeur.
