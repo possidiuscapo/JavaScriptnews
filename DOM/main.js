@@ -131,11 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  *  METHODE 
  * 
- * innerText
+ * innerText : renvoie le contenu
  * innerHIML : renvoie le contenu HTML complet, même les balises HTML
  * textContent
  * 
- * sont toutes utilisées pour manupuler ou récupérer le conten d'un élément HTML dans Javascript.
+ * sont toutes utilisées pour manupuler ou récupérer le contenu d'un élément HTML dans Javascript.
  * 
  * 
  */
