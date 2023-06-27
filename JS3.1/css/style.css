@@ -1,0 +1,10 @@
+canvas{
+    border: 5px solid rgb(206, 69, 69);
+    border-radius: 20px;
+    background-color: bisque;
+}
+main{
+    margin-inline: auto;
+    width: 90%;
+    max-width: 650px;
+}
