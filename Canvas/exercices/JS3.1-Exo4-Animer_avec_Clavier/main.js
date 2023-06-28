@@ -15,6 +15,55 @@ let ctx;
 
 // Dès que le DOM est chargé on commence
 document.addEventListener('DOMContentLoaded', function () {
+    let canvasDom = document.querySelector('#canvas');
+    console.log(canvasDom);
 
+    ctx = canvasDom.getContext('2d');
+
+    displaySquare();
+
+    document.addEventListener("keydown", function (eventMove) {
+        switch (eventMove.key) {
+            case ArrowRight:
+                if (square.x + square.length < canvasDom.width) {
+                    square.x++;
+                };
+                break;
+
+            case ArrowLeft:
+                if (square.x > 0) {
+                    square.x--;
+                }
+                break;
+
+            case ArrowUp:
+                if (square.y > 0) {
+                    square.y--;
+                }
+                break;
+
+            case ArrowDown:
+                if (square.y + square.length < canvasDom.height) {
+                    square.y++;
+                };
+                break;
+        }
+
+        displaySquare();
+    });
+
+    function displaySquare() {
+        ctx.clearRect(0,0, canvasDom.width, canvasDom.height);
+
+        ctx.fillStyle  = '#ff00ff';
+
+        ctx.clearRect(0,0, canvasDom.width, canvasDom.height);
+
+        ctx.fillStyle = square.color;
+
+        ctx.fillRect(square.x, square.y, square.length, square.length )
+    }
+
+    displaySquare();
 
 });
