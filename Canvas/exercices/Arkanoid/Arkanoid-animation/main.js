@@ -16,7 +16,8 @@ let ball = {
     positionY: 25,
     color: '#FF000f',
     radius: 20,
-    directionY: 1
+    directionY: 1,
+    directionX: 1
 }
 
 let speed = 5;
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         widthGame: canvasDom.width,
         heightGame: canvasDom.height,
         color: '#ddd',
-        colorSquare: '#3fdeef',
+        colorSquare: '#FF000f',
         border: 'red'
     }
 
@@ -63,20 +64,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function playGame() {
         ball.positionY += ball.directionY * speed;
+        ball.positionX += speed * ball.directionX;
 
         if (ball.positionY <= ball.radius || ball.positionY > game.heightGame ) {
             ball.directionY *= -1;
-            ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
+            // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
         }
-        /*
-        if (ball.positionY <= ball.radius || ball.positionY + ball.radius >= 560) {
-            ball.directionY *= -1;
+        
+        if (ball.positionX <= ball.radius || ball.positionX > game.widthGame) {
+            ball.directionX *= -1;
             // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`
-        }*/
+        }
         displayGame();
         requestAnimationFrame(playGame);
         displaySquare();
-        detectCollisions()
+        detectCollisions();
     };
     playGame();
 
@@ -103,13 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (eventMove.key) {
             case "ArrowRight":
                 if (square.x + 100 < canvasDom.width) {
-                    square.x += 10;
+                    square.x += 50;
                 };
                 break;
 
             case "ArrowLeft":
                 if (square.x > 0) {
-                    square.x -= 10;
+                    square.x -= 50;
                 }
                 break;
         }
