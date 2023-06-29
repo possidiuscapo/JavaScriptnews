@@ -6,7 +6,8 @@
 let square = {
     color: "#FF0000",
     x: 250,
-    y: 560
+    y: 560,
+    length : 100
 };
 
 
@@ -63,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function playGame() {
         ball.positionY += ball.directionY * speed;
 
-        if (ball.positionY <= ball.radius || ball.positionY + ball.radius >= 560) {
+        if (ball.positionY <= ball.radius || ball.positionY > game.heightGame ) {
             ball.directionY *= -1;
-            ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`
+            ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
         }
         /*
         if (ball.positionY <= ball.radius || ball.positionY + ball.radius >= 560) {
@@ -75,16 +76,26 @@ document.addEventListener('DOMContentLoaded', function () {
         displayGame();
         requestAnimationFrame(playGame);
         displaySquare();
+        detectCollisions()
     };
     playGame();
+
+
+    function detectCollisions() {
+        if ((ball.positionX - ball.radius) >= square.x - (ball.radius * 2) && (ball.positionX + ball.radius) <= (square.x + square.length) + (ball.radius *2) &&  (ball.positionY + ball.radius) >= square.y){
+            ball.directionY = -1; 
+        }
+    };
 
     function generatorRandomNumber(min, max) {
         return Math.floor(Math.random() * ((max - min + 1) + min))
     }
     generatorRandomNumber();
+
+
     function displaySquare() {
         ctx.fillStyle = game.colorSquare;
-        ctx.fillRect(square.x, square.y, 100, 20);
+        ctx.fillRect(square.x, square.y, square.length, 20);
     }
     displaySquare()
 
