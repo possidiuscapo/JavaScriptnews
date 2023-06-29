@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let interval;
     const button1 = document.querySelector("div button:first-of-type");
     const button2 = document.querySelector("div button:last-of-type");
-    const button3 = document.querySelector(".reset");
+    // const button3 = document.querySelector(".reset");
     let compter = 0;
     button1.addEventListener("click", function () {
         interval = setInterval(() => {
