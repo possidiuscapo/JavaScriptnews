@@ -6,8 +6,8 @@
 let square = {
     color: "#FF0000",
     x: 250,
-    y: 560,
-    length : 100
+    y: 520,
+    length: 100
 };
 
 
@@ -20,10 +20,13 @@ let ball = {
     directionX: 1
 }
 
-let speed = 5;
 // Notre context et notre Canvas sont définis dans le Scope global pour un accès par nos fonctions
 let canvasDom;
 let ctx;
+let speed = 2;
+let over;
+let click = 0;
+
 
 
 // Dès que le DOM est chargé on commence
@@ -34,11 +37,70 @@ document.addEventListener('DOMContentLoaded', function () {
         widthGame: canvasDom.width,
         heightGame: canvasDom.height,
         color: '#ddd',
-        colorSquare: '#FF000f',
-        border: 'red'
+        // colorSquare: '#FF000f',
+        border: 'red',
+        gameOver : false
     }
 
     ctx = canvasDom.getContext('2d');
+
+    function playGame() {
+        ball.positionY += ball.directionY * speed;
+        ball.positionX += speed * ball.directionX;
+
+        if (ball.positionY <= ball.radius || ball.positionY > game.heightGame) {
+            ball.directionY *= -1;
+            // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
+        }
+
+        if (ball.positionX <= ball.radius || ball.positionX > game.widthGame - ball.radius) {
+            ball.directionX *= -1;
+            // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
+        }
+        displayGame();
+        over = requestAnimationFrame(playGame);
+        // displaySquare();
+        detectCollisions();
+        gameOvers();
+
+    };
+    playGame();
+
+    document.addEventListener("keydown", function (eventMove) {
+        switch (eventMove.key) {
+            case "ArrowRight":
+                if (square.x + square.length < canvasDom.width) {
+                    square.x += 50;
+                };
+                break;
+
+            case "ArrowLeft":
+                if (square.x > 0) {
+                    square.x -= 50;
+                }
+                break;
+            case " ":
+                click++;
+                if ((click % 2) === 0) {
+                    playGame()
+                } else if ((click % 2) === 1) {
+                    cancelAnimationFrame(over);
+                }
+                break;
+            // case "ArrowUp":
+            //     if (square.y > 0) {
+            //         square.y -= 20;
+            //     }
+            //     break;
+            // case "ArrowDown":
+            //     if (square.y + 20 > 0) {
+            //         square.y += 20;
+            //     }
+            //     break;
+        }
+
+        displayGame()
+    });
 
     function displayGame() {
         ctx.clearRect(0, 0, game.widthGame, game.heightGame);
@@ -55,67 +117,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
         ctx.beginPath();
 
-        ctx.arc(ball.positionX, ball.positionY, ball.radius, 0,2 * Math.PI);
+        ctx.arc(ball.positionX, ball.positionY, ball.radius, 0, 2 * Math.PI);
 
         ctx.fill();
 
+        ctx.fillStyle = game.colorSquare;
+        ctx.fillRect(square.x, square.y, square.length, 20);
+        
+        // keyboardEvent();
         // displaySquare();
     };
 
-    function playGame() {
-        ball.positionY += ball.directionY * speed;
-        ball.positionX += speed * ball.directionX;
-
-        if (ball.positionY <= ball.radius || ball.positionY > game.heightGame ) {
-            ball.directionY *= -1;
-            // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`;
-        }
-        
-        if (ball.positionX <= ball.radius || ball.positionX > game.widthGame) {
-            ball.directionX *= -1;
-            // ball.color = `rgb(${generatorRandomNumber(0, 255)},${generatorRandomNumber(0, 255)}, ${generatorRandomNumber(0, 255)})`
-        }
-        displayGame();
-        requestAnimationFrame(playGame);
-        displaySquare();
-        detectCollisions();
-    };
-    playGame();
-
-
     function detectCollisions() {
-        if ((ball.positionX - ball.radius) >= square.x - (ball.radius * 2) && (ball.positionX + ball.radius) <= (square.x + square.length) + (ball.radius *2) &&  (ball.positionY + ball.radius) >= square.y){
-            ball.directionY = -1; 
-        }
+        if ((ball.positionX - ball.radius) >= square.x - (ball.radius * 2) && (ball.positionX + ball.radius) <= (square.x + square.length) + (ball.radius * 2) && (ball.positionY + ball.radius) >= square.y) {
+            ball.directionY = -1;
+        };
+    };
+
+    function gameOvers() {
+        if ((ball.positionY + ball.radius) >= canvasDom.height) {
+            ctx.font = "2rem sans-serif";
+            ctx.fillstyle = "Yellow";
+            ctx.fillText("GAME OVER", 200, 290);
+            cancelAnimationFrame(over);
+        };
+
     };
 
     function generatorRandomNumber(min, max) {
-        return Math.floor(Math.random() * ((max - min + 1) + min))
-    }
+        return Math.floor(Math.random() * ((max - min + 1) + min));
+    };
     generatorRandomNumber();
 
 
-    function displaySquare() {
-        ctx.fillStyle = game.colorSquare;
-        ctx.fillRect(square.x, square.y, square.length, 20);
-    }
-    displaySquare()
+    // function displaySquare() {
+        
+    // };
+    // displaySquare();
 
-    document.addEventListener("keydown", function (eventMove) {
-        switch (eventMove.key) {
-            case "ArrowRight":
-                if (square.x + 100 < canvasDom.width) {
-                    square.x += 50;
-                };
-                break;
-
-            case "ArrowLeft":
-                if (square.x > 0) {
-                    square.x -= 50;
-                }
-                break;
-        }
-
-        displaySquare();
-    });
+    
+    
 });
