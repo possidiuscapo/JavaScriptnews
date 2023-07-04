@@ -9,14 +9,75 @@
     <style>
         
     </style>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
+    <script type="modul" src="js/mains.js"></script>
+    <!-- <script src="js/modul.js"></script> -->
 </head>
 <body>
     <div class="wraper">
         <form action="" method="post">
-            <label for="email">Email</label><br><input type="email" id="inputEmail" name="email" placeholder="Votre email"><br>
-            <label for="password">Mot de passe</label><br><input type="password" id="inputPass" name="password" placeholder="***********">
-            <input type="submit" 🚲🚲🚲id="inputSubmit" name="submit" value="Connexion">
+            <label for="fisrtname">Prenom</label><br>
+            <input type="text" id="inputLastname" name="lastname" placeholder="Votre prenom"><br>
+
+            <label for="fisrtname">Nom</label><br>
+            <input type="text" id="inputName" name="fisrtname" placeholder="Votre nom"><br>
+            
+            <input type="submit" id="inputSubmit" name="submit" value="Valider">
+
+            <p>
+                <strong>Les modules:</strong>
+                JavaScript sont un mécanisme de regroupement et d'orgnaisation du code JavaScrpt. Ils permettent de découper un programme en plusieurs fichiers, appelés modules, qui peuvent être réutilisés et importés dans d'autres fichiers. 
+            </p>
+            <p>
+                Pour créer un module JavaSript, on utilise le mot-clé export pour déclarer les éléments (fonction, variables, classes) que vous souhaitez rendre accessibles à d'autres modules. <br>Par exemple:
+            </p>
+            <pre>
+                // Dans un fichier nommé "module.js"
+                //Exporter une fonction 
+                exporter function maFonction() {
+                    // Code de la fonction
+                }
+        
+                //Exporter une variable 
+                export const maVariable = 42;
+        
+                // Exporter une classe 
+                export class MaClasse {
+                    // Code de la classe
+                }
+            </pre>
+            <p>
+                Ensuite, dans un autre fichier, nous pouvons utiliser le mot-clé <strong><em>"import"</em></strong> pour importer les éléments exportés depuis le module :
+            </p>
+            <pre>
+                // Dans un autre fichier
+        
+                // Importer une fonction 
+                import {maFonction} from './module.js';
+        
+                // Importer une variable 
+                import {maVariable} from './module.js';
+                
+                // Importer une variable 
+                import {MaClasse} from './module.js';
+            </pre>
+            <div class="container mt-5 mb-5 col-md-4">
+                <form action="" class="" method="get">
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label fw-bold">Email:</label>
+                        <input type="email" class="form-control px-3 py-3" id="name" placeholder="Enter email" name="email"
+                            required>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Username</label>
+                        <input type="text" class="form-control px-3 py-3" id="name" placeholder="Enter name" name="name"
+                            required>
+                    </div>
+                    <button id="btn" type="submit" class="btn btn-primary fw-bold py-3 w-100">Envoyer</button>
+                </form>
+            </div>
+
         </form>
     </div>
 </body>
