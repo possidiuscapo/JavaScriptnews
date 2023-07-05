@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let request = new Request();
             request.getInputs(this.inputValue)
         }
-    }
+    };
     
     // console.log(email, password);
     submit.addEventListener("click", function (event) {
@@ -31,9 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         tabInput.push(nomDeFamille);
         tabInput.push(password)
     });
-    
-
-
-
+        
 });
+
+export default Request
 
