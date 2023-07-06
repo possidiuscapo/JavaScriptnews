@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
@@ -16,13 +17,13 @@
 
         1. Que signifie « DOM » ?
             Document Obligatory Model
-            Document Object Model                                  ×
+            Document Object Model         ------->                         ×
             Document Object Mode
             Delete Object Model
 
         2. Comment peut-on sélectionner un élément par son ID ?
             document.getElementsById('id');
-            document.querySelector('#id');                         ×
+            document.querySelector('#id');               ------->          ×
             document.getId('id');
             document.getElementId('id');
 
@@ -30,43 +31,43 @@
             const elems = document.querySelectorAll('p');
             Un tableau
             Un objet
-            Un `NodeList`                                           ×
+            Un `NodeList`                                    ------->       ×
             Une erreur
 
         4. Comment gérer l'événement `click` sur un élément ?
             element.addClick('click', //...);
             element.addEvent('click', //...);
-            element.addEventListener('click', //...);               ×
+            element.addEventListener('click', //...);         ------->      ×
             element.addClickEvent('eventClick', //...);
 
         5. Qu'est-ce que l'objet `window` ?
-            Le document qui contient le HTML                        ×
+            Le document qui contient le HTML              ------->          ×
             L'objet global qui représente un onglet du navigateur 
             L'équivalent du tag HTML `< section >`
             Un argument d'un évènement `click`
 
         6. Que signale l'événement `DOMContentLoaded` ?
             Que la connexion Internet est mauvaise
-            Que le DOM est chargé                                   ×
+            Que le DOM est chargé                    ------->               ×
             Que le DOM n'est pas accessible
             Que le navigateur est hors connexion
 
         7. Comment supprimer un `eventListener`
             removeEvent
             removeListener
-            removeEventListener                                     ×
+            removeEventListener                           ------->          ×
             On ne peut pas supprimer un `eventListener`
 
         8. Quel événement est invalide ?
             mousemove
-            clique                                                  ×
+            clique                                          ------->        ×
             contextmenu
             keydown
 
         9. Si on a deux éléments HTML de la même classe `secondary-title`, que retourne `document.querySelector('.secondary-title');` ?
             Le deuxième élément trouvé
             Une erreur
-            Le premier élément trouvé                               ×
+            Le premier élément trouvé                    ------->           ×
             Les deux éléments
 
         10. Que fait ce code ? let date = {};
@@ -78,47 +79,47 @@
             1000);
             Il retourne la fonction `console.log` avec les arguments
             Il affiche l'heure, les minutes et les secondes toutes les 1000 secondes
-            Il affiche l'heure, les minutes et les secondes une fois par seconde                     ×
+            Il affiche l'heure, les minutes et les secondes une fois par seconde           ------->          ×
             Une erreur `date is undefined`
 
         11. À quoi sert la fonction `setTimeout()` ?
             À répéter du code automatiquement à un intervalle qu'on spécifie en argument
             C'est un évènement qui est émis quand on charge la page
-            À exécuter du code après un laps de temps qu'on choisit  ×
+            À exécuter du code après un laps de temps qu'on choisit ---> ×
             À empêcher le code JavaScript de s'exécuter avant le chargement complet du HTML
 
         12. Que retourne la fonction `setInterval()` ?
             Un objet
-            Un ID                                          ×
+            Un ID                                     ------->     ×
             Une fonction
             Une chaîne de caractères vide
 
         13. Lors de l'usage de la fonction `requestAnimationFrame()`, sur quel paramètre se fonde la vitesse d'animation ?
-            Le taux de rafraîchissement de l'écran                 ×
+            Le taux de rafraîchissement de l'écran         ------->        ×
             La fréquence du processeur
             La fréquence de la carte graphique  
             Le taux normal de la TVA en vigueur au moment de la dernière sauvegarde du fichier
 
         14. Quand peut-on se servir de la fonction `clearTimeout()` ?
             Quand on veut annuler un `setInterval`
-            Quand on veut annuler un `setTimeout`                     ×
+            Quand on veut annuler un `setTimeout`            ------->         ×
             Quand on veut annuler une sélection d'élément HTML
             Quand on veut annuler une animation
 
         15. Peut-on exécuter une animation avec `requestAnimationFrame()` ?
-            Oui                                                       ×
+            Oui                                             ------->          ×
             Non          
             Uniquement si on a une fonction `setTimeout()` dans notre script
 
         16. Que passe-t-on en argument à la fonction `clearInterval()` ?
             L'ID d'un élément HTML
-            L'ID retourné par la fonction `setInterval()`              ×
+            L'ID retourné par la fonction `setInterval()`       ------->       ×
             Une fonction
             Une classe CSS
 
         17. La fonction `setInterval` se comporte-t-elle exactement comme une boucle ?
             Oui
-            Non                                                         ×
+            Non                                   ------->                ×
 
         18. Quelle est la valeur de la variable `id` ?
             let i = 0;
@@ -128,12 +129,12 @@
 
             La racine carrée de 500
             5
-            Un identifiant d'intervalle                                 ×
+            Un identifiant d'intervalle                    ------->       ×
             Rien, ce code génère une erreur
 
         19. Dans un système de coordonnées cartésiennes, à quoi correspond l'axe des abscisses « x » ?
 
-            À l'axe horizontal                                          ×
+            À l'axe horizontal                        ------->          ×
             À l'axe vertical
             À la profondeur
             À un vecteur perpendiculaire au sens du vent apparent ressenti dans le génois
@@ -144,7 +145,7 @@
 
             Laquelle des affirmations suivantes est fause:
             Le premier callback sera executé 60 fois par seconde
-            Le second callback sera executé 60 fois par seconde           ×
+            Le second callback sera executé 60 fois par seconde      ------->     ×
             Le second callback ne sera appelé qu'une fois au premier rafraîchissement de l'écran
             Le premier callback continuera son execution à intervalle régulier même si l'utilisateur regarde des photos de chatons sur un autre onglet du navigateur
             Soumettre

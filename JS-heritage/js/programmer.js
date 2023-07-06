@@ -13,7 +13,7 @@ class Programmer extends Worker {
         return this.#language;
     }
     set language(newLangue){
-        console.log("appelle du getteur");
+        console.log("Appelle du sette");
         this.#language = newLangue;
     }
     
