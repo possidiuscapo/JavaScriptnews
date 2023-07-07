@@ -1,21 +1,19 @@
 `user strict`
 
 export default class User {
-    #name;
-    #firstName;
-    #job = null;
-    constructor (nme, frstNam, job){
-        this.#name = nme;
-        this.#firstName = frstNam;
-        this.#job = job;
+    constructor(name) {
+        this.name = name;
     }
-    
-    fullName(name, firstName, job) {
-        return `${this.name} ${firstName} ${job}`;
-    };
+    get name() {
+        return this.name;
+    }
+    set name(name) {
+        this.name = name;
+    }
 }
-
-let user1 = new User("Possidius", "capo", "developper");
-console.log(user1)
-user1.fullName()
+const user = new User("Alice");
+console.log(user.name);
+// let user1 = new User("Possidius", "capo", "developper");
+// console.log(user1)
+// user1.fullName()
 
