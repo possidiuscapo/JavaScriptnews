@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 20px;
+    background-color: #eee;
+}
+
+.wraper{
+    width: 70%;
+    max-width: 780px;
+    margin-inline: auto;
+    padding: 5rem 0;
+    /* text-align: center; */
+}
+
+.fa-angle-down{
+    font-size: 0.8em;
+    color: #555;
+}
+h1{
+    color: rgb(207, 0, 0);
+    text-align: center;
+    font-size: 35
+    rem;
+}
+form{
+    background-color: white;
+    /* padding: 5rem 0; */
+}
+form input{
+    /* display: inline-blo */
+    width: 90%;
+    padding: 1em 0.6rem;
+    border: none;
+    /* color: red; */
+    /* font-style: italic; */
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+.bas{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 100%;
+    padding: 0 1.5rem;
+}
+.bas p{
+    display: inline;
+}
