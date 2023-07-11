@@ -1,6 +1,6 @@
 `user strict`
 
-// document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     let input = document.querySelector("#todotext");
     let di = document.querySelector(".button");
     
@@ -11,20 +11,22 @@
     let statusPara = document.getElementById("")
     let todos = [];
 
-    input.addEventListener("keydown", ajoutDeTache);
+    input.addEventListener("keydown", ajoutDeTache());
 
 
 function ajoutDeTache(eve) {
-    // console.log(eve.key)
-    if (eve.key === "Enter"){
-        // console.log("ajout de la tâche dans la console...");
-        // pour recuperer la valeur d'une input
-        console.log(input.value)
-        const todo = input.value;
-        todo.push(todo)
-        input.value = "";
-    }
+
+    console.log(eve.key)
+    // if (eve.key === "Enter"){
+    //     // console.log("ajout de la tâche dans la console...");
+    //     // pour recuperer la valeur d'une input
+    //     console.log(input.value)
+    //     const todo = input.value;
+    //     todo.push(todo)
+    //     input.value = "";
+    // }
     updateStatus();
+    insertTodo();
 }
 
 function insertTodo() {
@@ -47,3 +49,5 @@ function updateStatus() {
         statusPara.style.display = "block";
     }
 }
+
+});
