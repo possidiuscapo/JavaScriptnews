@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }} <br> Moi c'est {{ firstname }} {{ lastname}}, je suis un Developer Front-end. Je suis age de {{
+        age }} <br>
+        <!-- {{ note [0] }} {{note [1]}} {{note [2]}} {{note [3] }} --> <br>
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span><br><br><br>
+        <span v-if="seen">Maintenant tu me vois</span>
+        <p v-if="age<=20">Maintenant j'ai {{ age }} ans</p>
+        <p v-else-if="age>=32"> j'ai maintenant {{ age }} ans </p>
+        <p v-else> moi j'ai {{ age }}</p>
+        <div>
+            <ol>
+                <li v-for="x in notes">
+                    Note : {{ x }}
+                </li>
+            </ol>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
