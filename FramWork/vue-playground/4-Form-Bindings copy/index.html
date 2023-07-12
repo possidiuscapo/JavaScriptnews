@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form bindings</title>
+</head>
+
+<body>
+  <div id="app">
+    <form action="" class="formulaire">
+
+      <input type="text" v-model="fnInput" placeholder="Type Firstname">
+      <p>{{ fnInput }}</p>
+
+      <input type="text" v-model="lnInput" placeholder="Type Lastname">
+      <p>{{ lnInput }}</p>
+
+      <input type="email" v-model="emailInput" placeholder="Type Email">
+      <p>{{ emailInput }}</p>
+
+      <div style="white-space: pre-line;">{{ }}</div>
+
+      <textarea v-model="message" name="" id="" placeholder="ajoutez plusieurs lignes"></textarea>
+
+      <div>
+        <input type="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}} </label>
+      </div>
+
+      <h2>Multi checkbox</h2>
+      <div>Nous selectionné : {{ checkboxName }}</div>
+
+      <input type="checkbox" id="Martin" value="Martin" v-model="checkboxName">
+      <label for="Martin">Martin</label>
+
+      <input type="checkbox" id="Faris" value="Faris" v-model="checkboxName">
+      <label for="Faris">Faris</label>
+
+      <input type="checkbox" id="Nicole" value="Nicole" v-model="checkboxName">
+      <label for="Nicole">Nicole</label>
+
+      <input type="checkbox" id="Sam-Rod" value="Sam-Rod" v-model="checkboxName">
+      <label for="Sam-Rod">Sam-Rod</label>
+
+      <input type="checkbox" id="Possidius" value="Possidius" v-model="checkboxName">
+      <label for="Possidius">Possidius</label>
+
+      <input type="checkbox" id="Euloge" value="Euloge" v-model="checkboxName">
+      <label for="Euloge">Euloge</label>
+
+      <h2>Radio</h2>
+      <div>Nous selectionné : {{ picked }}</div>
+
+      <input type="radio" name="" id="un" v-model="picked">
+      <label for="un">Un</label>
+
+      <input type="radio" name="" id="deux" v-model="picked">
+      <label for="deux">Deux</label>
+
+      <input type="radio" name="" id="trois" v-model="picked">
+      <label for="trois">Trois</label>
+
+      <h2>Selections</h2>
+      <div>Selectionné : {{ selected}}</div>
+      <select v-model="selected">
+        <option disabled value="">Selectionnez un élément svp</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+      </select>
+
+      <!-- <div>
+        <input type="checkbox">
+      </div> -->
+    </form>
+  </div>
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+
+    createApp({
+      data() {
+        return {
+          fnInput: '',
+          lnInput: '',
+          emailInput: '',
+          passwordInput: '',
+        }
+      },
+      methods: {
+        ftnInput(e) {
+          this.fnInput = e.target.value
+        },
+        ltnInput(e) {
+          this.LnInput = e.target.value
+        },
+        mailInput(e) {
+          this.emailInput = e.target.value
+        },
+        pswInput(e) {
+          this.passwordInput = e.target.value
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamique</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js" integrity="sha512-Wbf9QOX8TxnLykSrNGmAc5mDntbpyXjOw9zgnKql3DgQ7Iyr5TCSPWpvpwDuo+jikYoSNMD9tRRH854VfPpL9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <div id="app">
+    <h1> {{ message }}</h1>
+  </div>
+
+  <script>
+    // import { createApp } from 'vue'
+    const { createApp } = Vue
+    createApp({
+            data( ) {// option "data"
+                return {
+                    //vos états (states)
+                    message: "Rendez moi dynamique !"
+                }
+            }
+         }).mount("#app")
+    </script>
+    
+</body>
+</html>

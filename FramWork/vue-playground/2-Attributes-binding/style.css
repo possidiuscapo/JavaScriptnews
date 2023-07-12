@@ -1,0 +1,13 @@
+.title {
+  color: rgb(255, 255, 255);
+}
+.bgdark{
+  background-color : rgb(174, 0, 0);
+  display: inline;
+  padding: 0.5em;
+  margin: 6rem;
+}
+.fw-400{
+  font-weight: 400;
+  text-decoration: dotted;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js" integrity="sha512-Wbf9QOX8TxnLykSrNGmAc5mDntbpyXjOw9zgnKql3DgQ7Iyr5TCSPWpvpwDuo+jikYoSNMD9tRRH854VfPpL9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{message}}</h1>
+    </div>
+
+    <script type="module"  >
+        import { createApp } from "https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js";
+        // fonction qui permet de montrer l'application
+        // const { createApp } = Vue;
+        //on monte l'application Vue dans la dive#app
+        // /
+        //   Vue uitilise des modèles(templates) semblable au HTML mais fait usage "des états "
+        //Un état (en:state ) est une variable q'on utilise dans notre application ( ou dans plus priécisement dans le template)
+        
+        //  data est une fonction qui retourne
+        
+        
+         createApp({
+            data( ) {// option "data"
+                return {
+                    //vos états (states)
+                    message: "My nigga "
+                }
+            }
+         }).mount("#app")
+
+         
+    </script>
+</body>
+
+</html>
