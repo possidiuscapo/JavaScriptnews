@@ -1,48 +1,84 @@
-<script type="module">
-import { createApp } from 'vue'
-
-let id = 0
-
-createApp({
-  data() {
-    return {
-      newTodo: '',
-      hideCompleted: false,
-      todos: [
-        { id: id++, text: 'Learn HTML', done: true },
-        { id: id++, text: 'Learn JavaScript', done: true },
-        { id: id++, text: 'Learn Vue', done: false }
-      ]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+  <style>
+    body{
+      padding: 2rem;
     }
-  },
-  computed: {
-    // ...
-  },
-  methods: {
-    addTodo() {
-      this.todos.push({ id: id++, text: this.newTodo, done: false })
-      this.newTodo = ''
-    },
-    removeTodo(todo) {
-      this.todos = this.todos.filter((t) => t !== todo)
-    }
-  }
-}).mount('#app')
-</script>
+  </style>
+  <title>Computed</title>
+</head>
+<body>
+  <div id="app">
+    <form @submit.prevent="addTodo">
+      <input v-model="newTodo">
+      <button>Add Todo</button>
+    </form>
+    <ul>
+      <li v-for="(todo, id) in filteredTodos" :key="todo.id">
+        <input type="checkbox" v-model="todo.done">
+        <span :class="{ done: todo.done }">{{ todo.text }}</span>
+        <button @click="removeTodo(todo)">X</button>
+      </li>
+    </ul>
+    <button @click="hideCompleted = !hideCompleted">
+      {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+    </button>
+  </div>
 
-<div id="app">
-  <form @submit.prevent="addTodo">
-    <input v-model="newTodo">
-    <button>Add Todo</button>
-  </form>
-  <ul>
-    <li v-for="todo in todos" :key="todo.id">
-      <input type="checkbox" v-model="todo.done">
-      <span :class="{ done: todo.done }">{{ todo.text }}</span>
-      <button @click="removeTodo(todo)">X</button>
-    </li>
-  </ul>
-  <button @click="hideCompleted = !hideCompleted">
-    {{ hideCompleted ? 'Show all' : 'Hide completed' }}
-  </button>
-</div>
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+    
+    let id = 0
+    
+    createApp({
+      data() {
+        return {
+          newTodo: '',
+          hideCompleted: false,
+
+          todos: [
+            { id: id++, text: 'Learn HTML', done: true },
+            { id: id++, text: 'Learn JavaScript', done: true },
+            { id: id++, text: 'Learn Vue', done: false }
+          ]
+        }
+      },
+      computed: {
+        // ... 
+        filteredTodos(){
+        //   let temp = [];
+        //   if (this.hideCompleted === true){
+        //     this.todos.forEach((todo) => {
+        //       if (todo.done === false) {
+        //         temp.push(todo);
+        //       };
+        //     });
+        //     return temp;
+        //   }else{
+        //     return this.todos//.filter((el => el.done !== true)) ;
+        //   }
+          if (this.hideCompleted){
+            return this.todos.filter((el => !el.done)) ;
+          }
+          return this.todos;
+        }
+      },
+      methods: {
+        addTodo() {
+          this.todos.push({ id: id++, text: this.newTodo, done: false })
+          this.newTodo = ''
+        },
+        removeTodo(todo) {
+          this.todos = this.todos.filter((t) => t !== todo)
+        }
+      }
+    }).mount('#app')
+    </script>
+</body>
+</html>

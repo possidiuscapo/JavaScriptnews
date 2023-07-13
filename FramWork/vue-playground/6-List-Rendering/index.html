@@ -1,41 +1,105 @@
-<script type="module">
-import { createApp } from 'vue'
+<!DOCTYPE html>
+<html lang="en">
 
-// give each todo a unique id
-let id = 0
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>List-Rendering</title>
+</head>
 
-createApp({
-  data() {
-    return {
-      newTodo: '',
-      todos: [
-        { id: id++, text: 'Learn HTML' },
-        { id: id++, text: 'Learn JavaScript' },
-        { id: id++, text: 'Learn Vue' }
-      ]
-    }
-  },
-  methods: {
-    addTodo() {
-      // ...
-      this.newTodo = ''
-    },
-    removeTodo(todo) {
-      // ...
-    }
-  }
-}).mount('#app')
-</script>
+<body>
 
-<div id="app">
-  <form @submit.prevent="addTodo">
-    <input v-model="newTodo">
-    <button>Add Todo</button>    
-  </form>
-  <ul>
-    <li v-for="todo in todos" :key="todo.id">
-      {{ todo.text }}
-      <button @click="removeTodo(todo)">X</button>
-    </li>
-  </ul>
-</div>
+  <div class="mt-4 p-5 bg-primary text-white rounded">
+    <div id="app">
+      <form @submit.prevent="addTodo">
+        <input v-model="newTodo">
+        <button class="btn btn-outline-info">Add Todo</button>
+        <!-- <p>Element {{newTodo}} </p> -->
+      </form>
+      <ul>
+        <li v-for="(todo, id) in todos"> {{todo.id}}
+          - {{ todo.text }}
+          <button @click="removeTodo(id)"  class="btn btn-light">X</button>
+        </li>
+      </ul>
+      <div>
+        <p>{{ verifyAdress }}</p>
+
+        <button v-on:click ="increment" type="button">Compte :{{count}} </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module">
+    import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+
+    // give each todo a unique id
+    let id = 0
+
+    createApp({
+      data() {
+        return {
+          newTodo: '',
+          todos: [
+            { id: id++, text: 'Learn HTML' },
+            { id: id++, text: 'Learn JavaScript' },
+            { id: id++, text: 'Learn Vue' }
+          ],
+          user :{
+            firstname: 'John',
+            address : {
+              tel : "+22966957003",
+              email: "test@highfive.com",
+            }
+          },
+          count : 0,
+        }
+      },
+      methods: {
+        addTodo() {
+          // ...
+          this.todos.push({ id: id++, text: this.newTodo })
+          this.newTodo = '';
+        },
+        removeTodo(id) {
+          // ...
+          // this.newTodo
+          this.todos.splice(id, 1)
+        },
+        
+        increment(){
+          this.count++
+        }
+      },
+      computed: { // on appel un elemen comme un getters
+        verifyAdress(){
+          return this.user.address.email.endsWith("@highfive.com") ? `${this.user.address.email} est une addresse mail Highfive`: `${this.user.address.email} n'est pas une addresse mail Highfive`;
+        },
+      }
+    }).mount('#app')
+    /**
+     * En vue js, il existe 2 principale options pour définir les fonctionnalités réactives "computed"
+     * computed: utilisez "compuded" lorsque vous avez besoin de calculerune propriéte basé sur les valeurs existances de propriété reactives (sate). 
+     * 
+     * Les proprietés calulées sont mises en cache et ne sont reaclcué pas que lorque leur dependanc chagent.
+     * 
+     * 
+     2- mehtods : utilisez "methods" lorsque vous souhaitez definer des methodes reutilisables ou lorsque cous devez effectuez une action spécifique en réponse à un évènement. Les mehtodes ne sont pas mises methodes sont utilisées pour gére des évènement, effectuer des appels HTTP ou exécuter des opérations complexes
+     
+     ex: methods: {
+      handLeClick (){
+        this.counter++;
+      },
+      fechDate(){
+        //Effectuer une requête HTTP pour récuperer des données
+      }
+     }
+    */
+  </script>
+
+</body>
+
+</html>

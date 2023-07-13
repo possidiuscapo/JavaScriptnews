@@ -1,5 +1,7 @@
+
+
 <script type="module">
-import { createApp } from 'vue'
+import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
 
 createApp({
   data() {
@@ -9,7 +11,7 @@ createApp({
   },
   methods: {
     toggle() {
-      // ...
+      this.awesome = !this.awesome;
     }
   }
 }).mount('#app')
@@ -17,6 +19,6 @@ createApp({
 
 <div id="app">
   <button @click="toggle">toggle</button>
-  <h1>Vue is awesome!</h1>
-  <h1>Oh no 😢</h1>
+  <h1 v-if="awesome" >Vue is awesome!</h1>
+  <h1 v-else>Oh no 😢</h1>
 </div>

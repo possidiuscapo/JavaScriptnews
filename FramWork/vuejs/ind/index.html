@@ -28,11 +28,14 @@
         
         
          createApp({
-            data( ) {// option "data"
+            data( ) {// option "data" qui retour un objet et aussi une fonction de createApp
                 return {
                     //vos états (states)
                     message: "My nigga "
                 }
+            },
+            methods:{ // une propriété de createApp dans laquelle on déclare nos fonctions à utiliser dans notre application.
+
             }
          }).mount("#app")
 
