@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styleusers.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wraper text-bg-secondary">
+        <div v-cloak id="app" class="element">
+            <div class="element1">
+                <!-- <p>Todo id: {{ todoId }}</p> -->
+                <button @click="todoId++" class="btn btn-secondary">Fetch next todo</button>
+            </div>
+            <div class="todos">
+                <p v-if="!todoData">Loading...</p>
+                <div v-else>
+                    <h2 class="user-id">{{ todoData.id }} </h2>
+                    <h2 class="user-title">{{ todoData.title }} </h2>
+                </div>
+                <!-- <pre v-else>{{ todoData }}</pre> -->
+            </div>
+            <h2 class="user">USERS</h2>
+            <div>
+                <!-- <p v-if="!todoData">Loading...</p> -->
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th class="bttn">Supprimer</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(user,index) in users" :key="user.id">
+                            <td>{{index +1}} </td>
+                            <td>{{user.name}} </td>
+                            <td>{{user.username}} </td>
+                            <td>{{user.email}} </td>
+                            <td>{{user.phone}} </td>
+                            <td class="bttn">
+                                <button @click="removeTodo(id)" class="btn btn-light">X</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.esm-browser.min.js'
+        // watchers. Option watch: est une otpion qu'on utilise pour observer le changement des états
+        createApp({
+            data() {
+                return {
+                    todoId: 1,
+                    todoData: null,
+                    users: [],
+                }
+            },
+            methods: {
+                async fetchData() {
+                    this.todoData = null
+                    const res = await fetch(`./todos.json`);
+                    const usersData = await fetch(`./users.json`);
+
+                    this.todoData = (await res.json())[(this.todoId - 1)];
+                    this.users = await usersData.json();
+                },
+                removeTodo(id) {
+                    // ...
+                    // this.newTodo
+                    this.users.splice(id, 1)
+                },
+            },
+            mounted() {
+                this.fetchData()
+            },
+            watch: {
+                todoId() {
+                    this.fetchData();
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

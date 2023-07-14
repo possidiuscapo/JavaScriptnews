@@ -1,0 +1,76 @@
+body {
+    background-color: #888;
+
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.wraper {
+    position: relative;
+    /* margin: 10rem; */
+    padding: 0.5rem;
+    overflow: hidden;
+    height: 50%;
+    padding: 2rem;
+
+}
+
+.btn-secondary {
+    background-color: rgb(66, 76, 77);
+    font-size: 1.5em;
+    transition: .8s;
+}
+
+.element {
+    /* position: absolute; */
+    top: 0%;
+    left: 10%;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.element1 {
+    text-align: center;
+    margin: 0px 0px 2rem 0px;
+}
+.element1 p{
+    font-size: 5em;
+}
+.todos {
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    /* background-color: #888; */
+}
+
+.todos div {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #888;
+    width: 80%;
+    padding: 1.3rem;
+    border-radius: 15px;
+}
+.user-id{
+    font-size: 5em;
+    background-color: #555;
+    display: inline;
+    margin-bottom: 1.5rem;
+}
+.user-title{
+    text-transform: uppercase;
+}
+.user{
+    text-align: center;
+    margin-block: 1.5rem;
+    color: rgb(211, 211, 211);
+}
+.bttn{
+    text-align: center;
+}

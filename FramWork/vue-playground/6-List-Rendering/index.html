@@ -74,7 +74,7 @@
           this.count++
         }
       },
-      computed: { // on appel un elemen comme un getters
+      computed: { // on appel un élément ici comme un getters
         verifyAdress(){
           return this.user.address.email.endsWith("@highfive.com") ? `${this.user.address.email} est une addresse mail Highfive`: `${this.user.address.email} n'est pas une addresse mail Highfive`;
         },
@@ -87,7 +87,7 @@
      * Les proprietés calulées sont mises en cache et ne sont reaclcué pas que lorque leur dependanc chagent.
      * 
      * 
-     2- mehtods : utilisez "methods" lorsque vous souhaitez definer des methodes reutilisables ou lorsque cous devez effectuez une action spécifique en réponse à un évènement. Les mehtodes ne sont pas mises methodes sont utilisées pour gére des évènement, effectuer des appels HTTP ou exécuter des opérations complexes
+     2- mehtods : utilisez "methods" lorsque vous souhaitez definer des methodes reutilisables ou lorsque vous devez effectuez une action spécifique en réponse à un évènement. Les méhtodes ne sont pas mises methods sont utilisées pour gére des évènement, effectuer des appels HTTP ou exécuter des opérations complexes
      
      ex: methods: {
       handLeClick (){
