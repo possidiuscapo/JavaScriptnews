@@ -13,9 +13,10 @@ abstract class Music {
 class Guitar extends Music {
     constructor(instrument:string){
         super(instrument)
+        this._instrument 
     }
     makeSound(){ 
-        return this._instrument
+        return "";
     }
 
     get instrument() : string {

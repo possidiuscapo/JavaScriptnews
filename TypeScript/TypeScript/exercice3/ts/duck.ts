@@ -6,7 +6,7 @@ interface Duck {
 }
 
 class Thing implements Duck {
-    name = "Possidius";
+    name : string;
     swim(): string {
         return "Nage comme un canard";
     }

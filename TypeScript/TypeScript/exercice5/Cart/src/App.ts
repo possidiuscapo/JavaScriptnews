@@ -5,6 +5,7 @@ import { Details, Delivery, MockDetails, MockDelivery } from "./data/MockProduct
 // Importez les bons fichiers et définition et une fois que vous avez récupérez tous les products mappez ce dernier 
 // pour extraire uniquement les produits dont l'option delivery est "special"
 
-let products: Array<Product<Details, Delivery>> = [];
-
 products.forEach((T,U)=>)
+
+
+let products: Array<Product<Details, Delivery>> = [];
