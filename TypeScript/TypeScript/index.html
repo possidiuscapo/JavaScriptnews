@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeScript</title>
+    <script src="./js/js.js"></script>
+</head>
+
+<body>
+    <div>
+        <h1>TypeScript def :</h1>
+        <p><strong>TypeScript</strong> est un language de programmation Open Source dévéloppé par Microsoft. Il est
+            conçu comme un sur-ensemble typé de JavaScript, ce qui signifie que tout code JavaScript valide est
+            également du TypeScript valide. Cependant, TypeScript offre des fonctionnalité supplémentaires qui
+            améliorent le dévéloppement et la maintenance des applications JavaScript à grande échelle.</p>
+        <h2>Les principales fonctionnalités</h2>
+
+        <p>1. <strong>Typage</strong> TypeScript permet de définir des types pour les variables, les paramètres de
+            fonction, les valeurs de retour et d'autres éléments du code. Cela permet de détecter les erreurs de typage
+            lors de la phase de dévéloppement plutôt qu'à l'exécution, ce qui peut améliorer la fiabilité du code.</p>
+        <p>2. <strong>Prise en charge des fonctionnalités ECMAScript récentes :</strong></p>
+        <p>3. <strong>Outils de dévéloppement avancés</strong></p>
+        <p>4. <strong>Intégration avec JavaScript existant</strong></p>
+        <p>5. <strong>Ecosystème et prise en charge:</strong></p>
+
+        <div>
+            <h3>Type de variable</h3>
+            <ul>
+                <li><strong>number :</strong> les nombres qu'ils soitent entiers ou à virgule</li>
+                <li><strong>string :</strong> représente les chaînes de caractère</li>
+                <li><strong>boolean : </strong>représente les valeurs booléennes c-a-d true ou false </li>
+                <li><strong>array:</strong> représente une tableau contenant des éléments du même type</li>
+                <li><strong>object :</strong> représente tout type d'objet</li>
+                <li><strong>null :</strong> représent la valeur "null"</li>
+                <li><strong>undifined :</strong> représent la valeur "undefined"</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Type de varaiable TS</h3>
+            <ul>
+                <li><strong>any :</strong> représente un type non spécificié du dynamique // on peut pas l'utiliser dans
+                    nos code</li>
+                <li><strong>unknown :</strong> représente un élément dont on ne connaît pas le type // on peut pas
+                    l'utiliser dans nos code</li>
+                <li><strong>enum :</strong> représente un ensemble de valeur nommées</li>
+                <li><strong>tuple :</strong> représente un tableau avec un nombre fixe d'élements de types différents
+                </li>
+            </ul>
+            <h4>Les alias</h4>
+            <p>Mot Clé "type" et les "interface"</p>
+            <p><strong>type</strong> sont utiliser pour tous type primitif c-a-d les <mark></mark></p>
+        </div>
+        <div>
+            <h4>Les classe en TypeScript</h4>
+            <p>Nous avons </p>
+            <ul>
+                <li><strong>publics : </strong>(defauts) permet l'accès à la propriété de partout</li>
+                <li><strong>private : </strong> ne permet l'accès que dans la classe</li>
+                <li><strong>protected: </strong> permet l'accès dans la classe et dans les enfants de la classe</li>
+            </ul>
+            <pre>
+                <code>
+                type UserType = {
+                    readonly id?: number,// pour les rendres optionnel il faut mettre devant eux un point d'interrogation et pour les mettres en lecture seule, il faut mettre readonly derrière eux.
+                    fname: string,
+                    lname: string,
+                    age?: number,
+                };
+                
+                let person1: UserType = {
+                    id: 1,
+                    fname: "John",
+                    lname: "Doe",
+                    age: 98,
+                };
+                
+            </code>
+        </pre>
+            <h4>Les classes abstraite</h4>
+            <p>Les <strong>Classes abstraites</strong> est une concept de la POO. C'est une classe qui ne peut être instancier directement , c-a-d qu'on ne peut pas créer d'objets directement à partir de de cette classe; Au lieu de cela, elle est conçu pour être utilisée comme un classe à partir de laquelle les autres peuvent hériter.</p>
+        </div>
+    </div>
+</body>
+
+</html>
